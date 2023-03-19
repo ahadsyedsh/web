@@ -1,27 +1,21 @@
 import React from "react";
 import { Link } from "react-router-dom";
-const Blog = () => {
+const Home = () => {
     return (
-        <div id="blog-page">
-            <h1>Blog page</h1>
-            <h2>Checkout my awesome blogs </h2>
-            <h3>
-                <a href="https://www.newtonschool.co/post/top-13-web-developer-interview-questions">
-                    Web Development Interview questions
-                </a>
-            </h3>
-            <h3>
-                <a href="https://www.newtonschool.co/post/graph-data-structure-explained-with-examples">
-                    Graph Data Structures
-                </a>
-            </h3>
-            <Link to="/info">
-                <button id="blog-to-info"> Go to Info</button>
+        <div id="home-page">
+            <h1>Home page</h1>
+            <h2>Hi, my name is Siddharth </h2>
+            <h2>
+                and I work at{" "}
+                <a href="https://www.newtonschool.co/">Newton School</a>
+            </h2>
+            <Link to="/blog">
+                <button id="home-to-blog"> Go to Blog</button>
             </Link>
-            <Link to="/">
-                <button id="blog-to-home"> Go to Home</button>
+            <Link to="/info">
+                <button id="home-to-info"> Go to Info</button>
             </Link>
         </div>
     );
 };
-export default Blog;
+export default Home;
