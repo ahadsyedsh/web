@@ -1,0 +1,30 @@
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String alphanumber = scanner.nextLine();
+        int[] digitCounts = new int[10];
+        for (int i = 0; i < alphanumber.length(); i++) {
+            char c = alphanumber.charAt(i);
+            if (Character.isDigit(c)) {
+                digitCounts[c - '0']++;
+            }
+        }
+        int highestDigit = -1;
+        int secondHighestDigit = -1;
+        for (int i = 0; i < digitCounts.length; i++) {
+            if (digitCounts[i] > 0) {
+                if (highestDigit == -1) {
+                    highestDigit = i;
+                } else if (i > highestDigit) {
+                    secondHighestDigit = highestDigit;
+                    highestDigit = i;
+                } else if (i < highestDigit && i > secondHighestDigit) {
+                    secondHighestDigit = i;
+                }
+            }
+        }
+        System.out.println(secondHighestDigit);
+    }
+}
