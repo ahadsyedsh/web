@@ -1,0 +1,38 @@
+class Solution {
+    public int minEatingSpeed(int[] piles, int h) {
+        int left = 1; // Minimum possible eating rate
+        int right = getMax(piles); // Maximum possible eating rate
+
+        while (left < right) {
+            int mid = left + (right - left) / 2; // Calculate the middle rate
+
+            if (canEatAll(piles, h, mid)) {
+                // If it's possible to eat all bananas within h hours at rate mid, search for a smaller rate
+                right = mid;
+            } else {
+                // If not possible, search for a larger rate
+                left = mid + 1;
+            }
+        }
+
+        return left; // The minimum eating rate found
+    }
+
+    // Helper function to check if it's possible to eat all bananas at a given rate
+    private boolean canEatAll(int[] piles, int h, int rate) {
+        int hoursNeeded = 0;
+        for (int pile : piles) {
+            hoursNeeded += (pile + rate - 1) / rate; // Round up division
+        }
+        return hoursNeeded <= h;
+    }
+
+    // Helper function to find the maximum pile size
+    private int getMax(int[] piles) {
+        int max = Integer.MIN_VALUE;
+        for (int pile : piles) {
+            max = Math.max(max, pile);
+        }
+        return max;
+    }
+}
