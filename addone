@@ -1,0 +1,17 @@
+static Node addOne (Node head){
+ // return the head of the Node 
+Node curr=head; 
+while(curr.next!=null){
+if (curr.data==9){
+curr.data=0;
+}else{
+curr.data=curr.data+1;
+return head;
+}
+curr=curr.next;
+}
+Node newNode= new Node(1);
+curr.data=0;
+curr.next=newNode; 
+return head;
+}
